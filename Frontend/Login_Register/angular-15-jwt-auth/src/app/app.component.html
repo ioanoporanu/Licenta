@@ -1,0 +1,53 @@
+<header>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</header>
+
+<div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark navbar-custom">
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home" style="font-size: 1.5vw; font-family: sans-serif ">Alpha</a>
+        </li>
+        <li class="nav-item" [hidden]="isLoggedIn">
+          <a href="/home" class="nav-link" routerLink="home" style="font-size: 1vw;">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard">
+          <a href="/admin" class="nav-link" routerLink="admin" style="font-size: 1vw;">Admin Board</a>
+        </li>
+        <li class="nav-item" *ngIf="showModeratorBoard">
+          <a href="/mod" class="nav-link" routerLink="mod" style="font-size: 1vw;">Moderator Board</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user" style="font-size: 1vw;">Home</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login" style="font-size: 1vw;">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register" style="font-size: 1vw;">Sign Up</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" routerLink="home" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

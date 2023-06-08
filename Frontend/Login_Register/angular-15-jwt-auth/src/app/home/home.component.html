@@ -1,0 +1,40 @@
+<div class="home-background">
+  <div class="card card-container">
+    <div class="card-header">
+      <button class="btn-button" type="submit" (click)="onClickDrive()" style="margin-left: 22%">
+        <div class="glyphicon glyphicon-road"></div>
+        <div class="border-margin"><b>Drive</b></div>
+        <div class="slider2" [hidden]="!screenSelected.get('Drive')"></div>
+      </button>
+      <button class="btn-button" type="submit" (click)="onClickTravel()" style="margin-left: 34%">
+        <span class="glyphicon glyphicon-glass"></span>
+        <div class="border-margin"><b>Travel</b></div>
+        <div class="slider1" [hidden]="!screenSelected.get('Travel')"></div>
+      </button>
+    </div>
+
+    <div class="moto2" [hidden]="!screenVisible.get('Drive')">
+      <p class="moto3"><b>Submit your ride and earn money!</b></p>
+      <p>You don't have an <b>account</b>?</p>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <button class="btn-button-create-account"><a href="/register" class="nav-link" routerLink="/register">Create one here</a></button>
+        <button class="btn-button-about-us"><a1 href="/register" class="nav-link" routerLink="/register">Learn more about our policy!</a1></button>
+      </ul>
+    </div>
+    <div class="moto2" [hidden]="!screenVisible.get('Travel')">
+      <p class="moto3"><b>Find a suitable ride for you!</b></p>
+      <p>You don't have an <b>account</b>?</p>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <button class="btn-button-create-account"><a href="/register" class="nav-link" routerLink="/register">Create one here</a></button>
+        <button class="btn-button-about-us"><a1 href="/register" class="nav-link" routerLink="/register">Learn more about our policy!</a1></button>
+      </ul>
+    </div>
+
+  </div>
+  <div class="moto">
+    <div>It's <b>time</b> to...</div>
+    <div class="moto1"><b>Share</b> your <b>car</b>!</div>
+    <div>Many <b>people</b> are waiting for <b>you</b>!</div>
+  </div>
+
+</div>

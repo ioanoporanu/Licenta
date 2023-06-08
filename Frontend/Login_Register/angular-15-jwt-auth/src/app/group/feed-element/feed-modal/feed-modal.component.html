@@ -1,0 +1,15 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" style="margin-left: 37%"><b>Create a post</b></h4>
+    <button type="button" class="close" aria-label="Close"
+            (click)="onCancel()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <input class="input-format1" [(ngModel)]="postText" placeholder="Write something...">
+  </div>
+  <div class="modal-footer">
+      <button class="btn-button-create-post" (click)="onSubmit()">Post</button>
+  </div>
+</div>

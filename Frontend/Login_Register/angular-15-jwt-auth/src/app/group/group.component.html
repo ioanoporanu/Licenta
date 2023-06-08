@@ -1,0 +1,56 @@
+<div class="background1" >
+  <div class="card card-container" style="width: 450px !important; background-color: whitesmoke; height: 700px !important; position: fixed">
+    <div class="card-header" style="background-color: whitesmoke"><b>{{group.name}}</b></div>
+    <div class="list-group-horizontal">
+      <div *ngFor="let owner of group.ownersUsername">
+        <a class="nav-link" routerLink="">
+          <div class="list-group-item d-flex justify-content-between" style="display: flex; border: none">
+            <div class="flex-text" style="color: black; flex: 1">
+              <b style="float: left;">~{{owner}}</b>
+              <button class="btn"  style="float: right">
+                <i class="fa fa-trash"></i></button>
+              <br>
+              <p style="float: left;">owner</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div *ngFor="let user of group.usersUsername">
+        <a class="nav-link" routerLink="">
+          <div class="list-group-item d-flex justify-content-between" style="display: flex; border: none">
+            <div class="flex-text" style="color: black; flex: 1">
+              <b style="float: left;">~{{user}}</b>
+              <button class="btn"  style="float: right">
+                <i class="fa fa-trash"></i></button>
+              <br>
+              <p style="float: left;">user</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="background">
+  <div class="col-md-12">
+    <div class="card card-container">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control input-format"
+          placeholder="Write something..."
+          (click)="openModal()"
+        />
+      </div>
+    </div>
+    <div class="list-group-horizontal">
+        <div *ngFor="let feedElement of feedElements">
+          <app-feed-element [feed]="feedElement" [groupName]="group.name"></app-feed-element>
+          <br>
+        </div>
+    </div>
+  </div>
+</div>
+
+

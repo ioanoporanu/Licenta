@@ -1,0 +1,26 @@
+.navbar-custom {
+  background-color: black !important;
+  height: 8vh !important;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  position: fixed;
+  width: 100vw;
+  z-index:1;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: white !important;
+
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: white !important;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
+
+

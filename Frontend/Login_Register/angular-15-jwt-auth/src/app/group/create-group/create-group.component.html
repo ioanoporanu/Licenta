@@ -1,0 +1,73 @@
+
+<div>
+  <div class="card card-container">
+    <i class="fa fa-group" style="font-size:50px; color: black; margin: auto"></i>
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="form.title"
+          required
+          minlength="3"
+          maxlength="20"
+          #title="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && title.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="title.errors && f.submitted">
+          <div *ngIf="title.errors['required']">Title is required</div>
+          <div *ngIf="title.errors['minlength']">
+            Title must be at least 3 characters
+          </div>
+          <div *ngIf="title.errors['maxlength']">
+            Title must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          [(ngModel)]="form.description"
+          required
+          minlength="3"
+          maxlength="20"
+          #description="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
+          <div *ngIf="description.errors['required']">Description is required</div>
+          <div *ngIf="description.errors['minlength']">
+            Description must be at least 3 characters
+          </div>
+          <div *ngIf="description.errors['maxlength']">
+            Description must be at most 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-button-custom" type="submit">Create Group</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isGroupCreationFailed">
+        Creation failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Group created successfully!
+    </div>
+  </div>
+</div>
+
