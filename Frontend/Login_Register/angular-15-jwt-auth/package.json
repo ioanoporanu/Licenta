@@ -24,15 +24,14 @@
     "@popperjs/core": "^2.11.6",
     "angular-bootstrap-modal": "^1.0.8",
     "bootstrap": "^4.6.2",
-    "mdb-angular-ui-kit": "^4.1.0",
     "rxjs": "~7.5.0",
     "smooth-scrollbar": "^8.8.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.3",
-    "@angular/cli": "~15.0.3",
+    "@angular-devkit/build-angular": "^16.0.5",
+    "@angular/cli": "~16.0.5",
     "@angular/compiler-cli": "^16.0.5",
     "@angular/localize": "^16.0.5",
     "@types/jasmine": "~4.3.0",
