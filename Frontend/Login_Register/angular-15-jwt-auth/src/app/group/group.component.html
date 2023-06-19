@@ -1,6 +1,12 @@
 <div class="background1" >
   <div class="card card-container" style="width: 450px !important; background-color: whitesmoke; height: 700px !important; position: fixed">
-    <div class="card-header" style="background-color: whitesmoke"><b>{{group.name}}</b></div>
+    <div class="card-header" style="background-color: whitesmoke; color: black">
+      <b>{{group.name}}</b>
+        <button
+          class="fa fa-user-plus add-button"
+          (click)="openUserAddModal()"
+        ></button>
+    </div>
     <div class="list-group-horizontal">
       <div *ngFor="let owner of group.ownersUsername">
         <a class="nav-link" routerLink="">
@@ -16,11 +22,11 @@
         </a>
       </div>
       <div *ngFor="let user of group.usersUsername">
-        <a class="nav-link" routerLink="">
+        <a class="nav-link">
           <div class="list-group-item d-flex justify-content-between" style="display: flex; border: none">
             <div class="flex-text" style="color: black; flex: 1">
               <b style="float: left;">~{{user}}</b>
-              <button class="btn"  style="float: right">
+              <button class="btn" (click)="onClickDelete(user)" style="float: right">
                 <i class="fa fa-trash"></i></button>
               <br>
               <p style="float: left;">user</p>
@@ -40,7 +46,7 @@
           type="text"
           class="form-control input-format"
           placeholder="Write something..."
-          (click)="openModal()"
+          (click)="openFeedModal()"
         />
       </div>
     </div>
@@ -49,6 +55,33 @@
           <app-feed-element [feed]="feedElement" [groupName]="group.name"></app-feed-element>
           <br>
         </div>
+    </div>
+  </div>
+</div>
+
+<div class="card background" style="left: 1050px; width: 500px; overflow: auto !important; height: 100%; position: fixed;">
+  <div class="col-md-12">
+    <div class="card card-container" style="width: 300px; font-size: 30px; text-align: center">
+      Shared Rides
+    </div>
+    <div class="list-group-horizontal">
+      <div *ngFor="let ride of sharedRides">
+        <a class="nav-link">
+          <div class="list-group-item d-flex justify-content-between" style="display: flex; background-color: #f5f5f5; border: none; height: 150px">
+            <div class="flex-text" style="color: black; flex: 1">
+              <b style="font-size: 20px">{{ride.source.name}} <span>&#11166;</span> {{ride.destination.name}}</b>
+              <button class="btn-button-book" [disabled]="ride.customersId.includes(currentUser.userId)" (click)="onClickBook(ride)" style="float: right; width: 15% !important; height: 40% !important; font-size: 15px">
+                Book
+              </button>
+              <br>
+              <b style="font-size: 17px">{{this.datePipe.transform(ride.rideDate, 'dd/MM/yyyy, h:mm')}} </b>
+              <br>
+              <p style="font-size: 17px">Available seats: <b>{{this.ride.availableSeats}}</b></p>
+            </div>
+          </div>
+        </a>
+        <br>
+      </div>
     </div>
   </div>
 </div>

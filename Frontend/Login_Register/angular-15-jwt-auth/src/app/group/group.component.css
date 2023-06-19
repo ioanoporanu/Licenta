@@ -6,6 +6,36 @@
   left: 450px;
 }
 
+.add-button {
+  font-size:30px;
+  color: black;
+  background: whitesmoke;
+  border: none;
+  float: right;
+}
+
+.btn-button-create-account{
+  border: none;
+  background-color: #FAFAFA;
+  color: black;
+  left: 70%;
+}
+
+.btn-button-book{
+  border: none;
+  background: black;
+  font-size: 1.2vw;
+  color: white !important;
+  border-radius: 10px;
+  height: 6vh;
+  width: 100%;
+  margin: auto;
+}
+
+.btn-button-book:disabled{
+  background-color: gray;
+}
+
 .background1 {
   background: white;
   position: absolute;
@@ -35,8 +65,8 @@
   font-size: 30px;
   background-color: white;
   border: none;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .input-format {

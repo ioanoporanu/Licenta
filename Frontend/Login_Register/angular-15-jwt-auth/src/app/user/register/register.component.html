@@ -1,11 +1,7 @@
 
-<div>
+<div class="background">
   <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
+    <div class="card-header"> <mat-icon class="user-icon">person</mat-icon></div>
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -18,6 +14,7 @@
         <input
           type="text"
           class="form-control"
+          style="border-radius: 15px"
           name="username"
           [(ngModel)]="form.username"
           required
@@ -41,6 +38,7 @@
         <input
           type="email"
           class="form-control"
+          style="border-radius: 15px"
           name="email"
           [(ngModel)]="form.email"
           required
@@ -60,6 +58,7 @@
         <input
           type="password"
           class="form-control"
+          style="border-radius: 15px"
           name="password"
           [(ngModel)]="form.password"
           required
@@ -83,7 +82,7 @@
       </div>
     </form>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
+    <div class="alert alert-success" style="margin: auto; background: black; color: white" *ngIf="isSuccessful">
       Your registration is successful!
     </div>
   </div>

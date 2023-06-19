@@ -1,6 +1,7 @@
 package com.example.BlaBlaCar.entities.group;
 
 import com.example.BlaBlaCar.entities.message.Message;
+import com.example.BlaBlaCar.entities.ride.Ride;
 import com.example.BlaBlaCar.entities.user.User;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -21,6 +22,16 @@ public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinTable(name = "groups_shared_rides",
+            joinColumns = @JoinColumn(name = "ride_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<Ride> sharedRides = new HashSet<>();
 
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToMany(mappedBy = "groups")

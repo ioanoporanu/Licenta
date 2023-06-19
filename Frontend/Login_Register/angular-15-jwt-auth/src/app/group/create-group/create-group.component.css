@@ -33,8 +33,19 @@ label {
 }
 
 .btn-button-custom {
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: black;
   color: white;
   width: 100%;
+}
+
+.background {
+  background-image: url("./../../../../../../Pictures/Home.png");
+  position: absolute;
+  top: 8%;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 92%;
+  background-size: 100% auto;
 }

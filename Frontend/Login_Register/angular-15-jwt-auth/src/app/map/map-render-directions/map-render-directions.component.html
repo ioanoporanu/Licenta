@@ -1,0 +1,18 @@
+<google-map height="100%"
+            width="50%"
+            [center]="center"
+            [zoom]="zoom"
+            [options]="options">
+  <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"
+                           [directions]="directionsResults"></map-directions-renderer>
+  <map-marker
+  #markerElem="mapMarker"
+  *ngFor="let marker of markers"
+  [position]="marker.position"
+  [label]="marker.label"
+  [title]="marker.title"
+  [options]="marker.options"
+
+>
+</map-marker>
+</google-map>

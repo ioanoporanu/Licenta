@@ -14,6 +14,8 @@ public class GroupDTO {
 
     private Set<String> ownersUsername;
 
+    private Long rideShareId;
+
     private String name;
 
     private String description;
@@ -27,5 +29,4 @@ public class GroupDTO {
     private String userAddUsername;
 
     private String ownerAddUsername;
-
 }

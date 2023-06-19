@@ -29,4 +29,8 @@ export class UserService {
   getUserGroups(): Observable<any> {
     return this.http.get(API_URL + '/group/getAll', { responseType: 'text' });
   }
+
+  getCurrentUser(): Observable<any> {
+    return this.http.get(API_URL + '/user/current', { responseType: 'text' });
+  }
 }

@@ -1,0 +1,82 @@
+<div class="card card-container">
+  <div class="card-header">
+    <button class="btn-button" type="submit" (click)="onClickDrive()" style="margin-left: 22%">
+      <div class="glyphicon glyphicon-road"></div>
+      <div class="border-margin"><b>Drive</b></div>
+      <div class="slider2" [hidden]="!screenSelected.get('Drive')"></div>
+    </button>
+    <button class="btn-button" type="submit" (click)="onClickTravel()" style="margin-left: 34%">
+      <span class="glyphicon glyphicon-glass"></span>
+      <div class="border-margin"><b>Travel</b></div>
+      <div class="slider1" [hidden]="!screenSelected.get('Travel')"></div>
+    </button>
+  </div>
+
+  <div class="moto2" [hidden]="!screenVisible.get('Drive')">
+    <p class="moto3"><b>Submit your ride right now!</b></p>
+
+    <ul class="navbar-nav mr-auto" routerLinkActive="active" style="padding-top: 30px; width: 100%">
+      <button class="btn-button-create-account"><a href="/create-ride" class="nav-link" routerLink="/ride/create-ride">Submit now</a></button>
+    </ul>
+  </div>
+  <div class="moto2" [hidden]="!screenVisible.get('Travel')">
+  <p class="moto3" [hidden]="availableRidesDisplay"><b>Order a ride right now!</b></p>
+  <div [formGroup]="form" [hidden]="availableRidesDisplay">
+    <div style="float: right">
+      <mat-datetimepicker-toggle matSuffix [for]="picker"></mat-datetimepicker-toggle>
+      <mat-datetimepicker #picker type="datetime"></mat-datetimepicker>
+      <input  class="my-date-input" [matDatetimepicker]="picker" required placeholder="Ride date" formControlName="pickUpDate">
+    </div>
+    <div>
+      <input
+        type="text"
+        class="my-search-box"
+        (keydown.enter)="$event.preventDefault()"
+        placeholder="Search pick up point"
+        formControlName="pickUpPoint"
+        #search
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        class="my-search-box"
+        (keydown.enter)="$event.preventDefault()"
+        placeholder="Search destination point"
+        formControlName="destinationPoint"
+        #search1
+      />
+    </div>
+  </div>
+  <ul class="navbar-nav mr-auto" routerLinkActive="active" [hidden]="availableRidesDisplay" style="padding-top: 10px; width: 100%">
+    <button class="btn-button-create-account" (click)="onClickOrder()">Order now</button>
+  </ul>
+    <div  [hidden]="!availableRidesDisplay">
+      <p class="moto3" style="text-align: center"><b>Rides available</b></p>
+      <div class="list-group-horizontal">
+        <div *ngFor="let ride of availableRides">
+          <a class="nav-link">
+            <div class="list-group-item d-flex justify-content-between" style="display: flex; background-color: #f5f5f5; border: none">
+              <div class="flex-text" style="color: black; flex: 1">
+                <b style="font-size: 20px">{{ride.source.name}} <span>&#11166;</span> {{ride.destination.name}}</b>
+                <button class="btn-button-create-account" [disabled]="ride.customersId.includes(currentUser.userId)" (click)="onClickBook(ride)" style="float: right; width: 15% !important; height: 40% !important; font-size: 15px">
+                  Book
+                </button>
+                <br>
+                <b style="font-size: 17px">{{this.datePipe.transform(ride.rideDate, 'dd/MM/yyyy, h:mm')}} </b>
+                <br>
+                <p style="font-size: 17px">Available seats: <b>{{this.ride.availableSeats}}</b></p>
+                <p style="font-size: 17px">Ride length: <b>{{this.ride.rideLength}}</b></p>
+                <button class="btn-button-create-account" routerLink="/map" [state]="{ id:1 , ride: ride}" style="float: right; height: 40% !important; font-size: 15px">
+                  Show Route
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+

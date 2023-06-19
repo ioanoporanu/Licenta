@@ -33,6 +33,8 @@ public abstract class GroupMapper {
 
         group.setUsers(new HashSet<>(groupDTO.getUsersUsername().stream().map(x -> userRepository.findByUsername(x).get()).collect(Collectors.toList())));
 
+        group.setDescription(groupDTO.getDescription());
+
         return group;
     }
 
@@ -41,7 +43,8 @@ public abstract class GroupMapper {
         GroupDTO groupDTO = GroupDTO.builder().name(group.getName())
                         .ownersUsername(new HashSet<>(group.getOwners().stream().map(x -> x.getUsername()).collect(Collectors.toList())))
                                 .usersUsername(new HashSet<>(group.getUsers().stream().map(x -> x.getUsername()).collect(Collectors.toList())))
-                                        .groupDeleteId(group.getId()).build();
+                                        .groupDeleteId(group.getId())
+                                            .description(group.getDescription()).build();
 
         return groupDTO;
     }
@@ -75,8 +78,11 @@ public abstract class GroupMapper {
         }
 
         if(groupDTO.getUserAddUsername() != null){
-            if(group.getUsers().contains(userRepository.findByUsername(groupDTO.getUserAddUsername())))
+            if(group.getUsers().contains(userRepository.findByUsername(groupDTO.getUserAddUsername()).get()))
                 throw new UserAlreadyExistException("User is already in this group");
+
+            if(userRepository.findByUsername(groupDTO.getUserAddUsername()).isEmpty())
+                throw new NotFoundException("User Does Not Exist");
 
             group.getUsers().add(userRepository.findByUsername(groupDTO.getUserAddUsername()).get());
 

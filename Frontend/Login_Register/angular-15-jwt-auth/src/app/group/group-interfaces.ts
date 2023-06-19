@@ -3,7 +3,7 @@ export interface Group {
 
   ownersUsername?: Set<string>;
 
-  name: string;
+  name?: string;
 
   groupDeleteId?: number;
 
@@ -11,9 +11,13 @@ export interface Group {
 
   ownerDeleteUsername?: string;
 
+  rideShareId?: number;
+
   userAddUsername?: string;
 
   ownerAddUsername?: string;
+
+  description?: string;
 }
 
 

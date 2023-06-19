@@ -1,0 +1,181 @@
+.my-date-input {
+  align-self: center;
+  width: 80%;
+  height: 5vh;
+  background-color: whitesmoke;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.my-date-input:focus {
+  outline: none;
+}
+
+.home-background {
+  background-image: url("./../../../../../../Pictures/Home.png");
+  position: absolute;
+  top: 8%;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 92%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.flex-text {
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.moto2 {
+  font-size: 1vw ;
+  padding: 40px;
+}
+
+.moto1 {
+  font-size: 5vw;
+}
+
+.moto3{
+  font-size: 3vw;
+  color: black;
+}
+
+.moto {
+  position: absolute;
+  top: 10vh;
+  left: 60vw;
+  font-size: 2.3vw;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  height: 350px;
+  top: 130px;
+  left: 655px;
+  bottom: 30vh !important;
+  width: 500px ;
+}
+
+.card-header {
+  border-bottom: 1px solid #dee2e6 !important;
+  position: relative;
+  padding-top: 20px;
+  background: #FAFAFA;
+}
+
+.glyphicon {
+  color: black !important;
+  font-size: 1.3vw;
+  margin-bottom: 20px;
+}
+
+.btn-button{
+  border: none;
+  background: none;
+  width: 4vw !important;
+  height: 10vh;
+}
+
+.btn-button-create-account{
+  border: none;
+  background: black;
+  font-size: 1.2vw;
+  color: white !important;
+  border-radius: 10px;
+  height: 6vh;
+  width: 100%;
+  margin: auto;
+}
+
+.btn-button-create-account:disabled{
+  background-color: gray;
+}
+
+.btn-button-about-us{
+  position: absolute;
+  border: none;
+  background-color: white;
+  font-size: 1vw;
+  top: 80%;
+  background-image: linear-gradient(rgb(195, 197, 194), rgb(176, 176, 176)),
+  linear-gradient(#050404, #090404);
+  background-size: 100% 1px, 0 1px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s linear;
+}
+
+.btn-button-about-us:hover {
+  background-size: 0 1px, 100% 1px;
+}
+
+a {
+  color: white;
+}
+
+a1 {
+  color: black;
+}
+
+a:visited {
+  color: white;
+}
+
+.border-margin{
+  margin-bottom: 20px;
+}
+
+.slider1 {
+  background: black;
+  width: 3vw;
+  height: .4vh;
+  animation: slideMe1 .3s;
+}
+
+@keyframes slideMe1 {
+  0% {
+    transform: skew(0deg) translateX(-17vw);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+.slider2 {
+  background: black;
+  width: 3vw;
+  height: .4vh;
+  animation: slideMe2 .3s;
+}
+
+@keyframes slideMe2 {
+  0% {
+    transform: skew(0deg) translateX(17vw);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.my-search-box {
+  align-self: center;
+  width: 100%;
+  height: 7vh;
+  background-color: whitesmoke;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.my-search-box:focus {
+  outline: none;
+}

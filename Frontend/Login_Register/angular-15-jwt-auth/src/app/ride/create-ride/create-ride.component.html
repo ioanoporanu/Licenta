@@ -1,0 +1,65 @@
+<div class="background">
+  <div class="card card-container">
+    <div class="card-header">
+      <button class="btn-button" type="submit" style="margin: auto">
+        <div class="glyphicon glyphicon-road"></div>
+        <div class="border-margin"><b>Drive</b></div>
+      </button>
+    </div>
+
+    <div class="moto2">
+      <div [formGroup]="form"
+           (ngSubmit)="f.form.valid"
+           #f="ngForm"
+      >
+        <div style="float: right">
+          <mat-datetimepicker-toggle matSuffix [for]="picker"></mat-datetimepicker-toggle>
+          <mat-datetimepicker #picker type="datetime"></mat-datetimepicker>
+          <input  class="my-date-input" [matDatetimepicker]="picker" required placeholder="Ride date" formControlName="pickUpDate">
+        </div>
+        <div>
+          <input
+            type="text"
+            class="my-search-box"
+            (keydown.enter)="$event.preventDefault()"
+            placeholder="Search pick up point"
+            formControlName="pickUpPoint"
+            #search
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            class="my-search-box"
+            (keydown.enter)="$event.preventDefault()"
+            placeholder="Search destination point"
+            formControlName="destinationPoint"
+            #search1
+          />
+        </div>
+        <div>
+          <input matInput min="1" max="7"
+            type="number"
+            class="my-search-box"
+            (keydown.enter)="$event.preventDefault()"
+            placeholder="Number of available seats"
+            formControlName="availableSeats"
+          />
+        </div>
+
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
+        <ul class="navbar-nav mr-auto" routerLinkActive="active" style="padding-top: 10px; width: 100%">
+          <button class="btn-button-create-account" (click)="onClickSubmitNow()">Submit now</button>
+        </ul>
+      </div>
+      <div class="alert alert-success" style="margin: auto; background: black; color: white" *ngIf="isSuccessful">
+        Your ride submission was successful!
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

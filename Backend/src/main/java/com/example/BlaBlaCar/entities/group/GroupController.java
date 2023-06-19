@@ -1,5 +1,6 @@
 package com.example.BlaBlaCar.entities.group;
 
+import com.example.BlaBlaCar.entities.ride.RideDTO;
 import com.example.BlaBlaCar.exceptions.ErrorMessage;
 import com.example.BlaBlaCar.exceptions.NotFoundException;
 import com.example.BlaBlaCar.exceptions.UnauthorizedException;
@@ -48,6 +49,18 @@ public class GroupController {
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public Long update(@PathVariable("id") Long id, @Valid @RequestBody GroupDTO groupDTO) {
         return groupService.updateGroup(groupDTO, id);
+    }
+
+    @GetMapping("/getSharedRides/{id}")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public List<RideDTO> getSharedRides(@PathVariable("id") Long id) {
+        return groupService.getSharedRides(id);
+    }
+
+    @PutMapping("/share")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public Long shareRide(@Valid @RequestBody GroupDTO groupDTO) {
+        return groupService.shareRide(groupDTO);
     }
 
     @ExceptionHandler({ NotFoundException.class})

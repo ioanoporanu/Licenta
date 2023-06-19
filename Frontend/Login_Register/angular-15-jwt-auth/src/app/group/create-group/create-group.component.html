@@ -1,5 +1,5 @@
 
-<div>
+<div class="background">
   <div class="card card-container">
     <i class="fa fa-group" style="font-size:50px; color: black; margin: auto"></i>
     <form
@@ -21,6 +21,7 @@
           maxlength="20"
           #title="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && title.errors }"
+          style="border-radius: 15px"
         />
         <div class="invalid-feedback" *ngIf="title.errors && f.submitted">
           <div *ngIf="title.errors['required']">Title is required</div>
@@ -44,6 +45,7 @@
           maxlength="20"
           #description="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+          style="border-radius: 15px"
         />
         <div class="invalid-feedback" *ngIf="description.errors && f.submitted">
           <div *ngIf="description.errors['required']">Description is required</div>

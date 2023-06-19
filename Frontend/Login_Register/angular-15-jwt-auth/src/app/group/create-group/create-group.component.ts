@@ -28,7 +28,6 @@ export class CreateGroupComponent {
     const { title, description } = this.form;
     this.groupService.createGroup(title, description).subscribe({
       next: data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isGroupCreationFailed = false;
       },

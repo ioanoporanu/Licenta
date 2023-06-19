@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Ride} from "../ride/ride.interface";
 
 const API_URL = 'http://localhost:9091/message/';
 const httpOptions = {
@@ -34,4 +35,5 @@ export class FeedService {
       API_URL + 'delete/' + id,
     );
   }
+
 }

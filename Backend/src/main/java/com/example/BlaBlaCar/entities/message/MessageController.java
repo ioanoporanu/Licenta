@@ -17,9 +17,9 @@ public class MessageController {
         return messageService.saveMessage(messageDTO);
     }
 
-    @DeleteMapping("/delete")
-    public void delete(@Valid @RequestBody MessageDTO messageDTO) {
-        messageService.deleteMessage(messageDTO);
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        messageService.deleteMessage(id);
     }
 
     @GetMapping("/getById/{id}")

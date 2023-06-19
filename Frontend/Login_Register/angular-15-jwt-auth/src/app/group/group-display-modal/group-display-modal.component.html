@@ -1,0 +1,22 @@
+<header style="font-size: 50px; text-align: center; color: black">Share ride</header>
+<div class="modal-content">
+  <div class="home-background">
+    <div class="card card-container">
+      <div class="card-header">
+        <i class="fa fa-group" style="font-size:20px; color: black; background: white"> Groups</i>
+      </div>
+      <div class="list-group-horizontal" style="overflow: auto">
+        <div *ngFor="let group of groups">
+          <a class="nav-link">
+            <button class="list-group-item " style="display: flex; background-color: #f5f5f5" (click)="shareRide(group)">
+              <div class="flex-text" style="color: black; flex: 1"><b style="font-size: 17px">{{group.name}}</b>
+                <p>{{group.description}}</p>
+                <br>
+              </div>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

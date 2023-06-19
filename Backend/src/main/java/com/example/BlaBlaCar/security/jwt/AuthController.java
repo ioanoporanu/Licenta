@@ -120,6 +120,7 @@ public class AuthController {
         }
 
         user.setRoles(roles);
+        user.setKmCoins(50);
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));

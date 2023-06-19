@@ -40,6 +40,8 @@ public class User {
     @Size(max = 20)
     private String username;
 
+    private float kmCoins;
+
     @NotBlank
     @Size(max = 50)
     @Email

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, Inject, Optional} from '@angular/core';
 import {Group} from "../group-interfaces";
 import {UserService} from "../../_services/user.service";
 import {GroupService} from "../../_services/group.service";
@@ -18,13 +17,12 @@ export class GroupDisplayComponent {
   users: Set<number> = new Set<number>();
 
   constructor(private userService: UserService,
-              private groupService: GroupService) { }
+              private groupService: GroupService,) { }
 
   ngOnInit(): void {
     this.userService.getUserGroups().subscribe({
       next: data => {
         this.groups = JSON.parse(data) as Set<Group>;
-        console.log(data);
       },
       error: err => {
         if (err.error) {
@@ -46,6 +44,7 @@ export class GroupDisplayComponent {
       return;
     this.groupService.deleteGroup(id).subscribe({
       next: data => {
+        window.location.reload();
       },
       error: err => {
         if (err.error) {
@@ -60,7 +59,7 @@ export class GroupDisplayComponent {
         }
       }
     });
-    window.location.reload();
+
   }
 
 }

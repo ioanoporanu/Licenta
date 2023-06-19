@@ -2,6 +2,7 @@ package com.example.BlaBlaCar.entities.user;
 
 import com.example.BlaBlaCar.entities.group.Group;
 import com.example.BlaBlaCar.entities.group.GroupDTO;
+import com.example.BlaBlaCar.role.ERole;
 import com.example.BlaBlaCar.role.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -30,7 +31,11 @@ public class UserDTO {
     @Size(max = 120)
     private String password;
 
-    private Set<Role> roles = new HashSet<>();
+    //private Set<String> roles = new HashSet<>();
 
     private Set<Long> groupsId = new HashSet<>();
+
+    private Long userId;
+
+    private float kmCoins;
 }

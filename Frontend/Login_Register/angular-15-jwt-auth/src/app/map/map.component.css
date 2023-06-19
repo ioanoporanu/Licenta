@@ -1,0 +1,24 @@
+.div-wrapper {
+  right: 14vw;
+  top: 8vh;
+}
+
+.google-map-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.background {
+  background-image: url("./../../../../../Pictures/Home.png");
+  position: absolute;
+  top: 8%;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 92%;
+  background-size: 100% auto;
+}
+

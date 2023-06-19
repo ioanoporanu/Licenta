@@ -52,17 +52,20 @@ public class MessageService {
 
         messageRepository.save(message);
 
+        currentUser.get().getMessages().add(message);
+        currentGroup.get().getMessages().add(message);
+
         return message.getId();
     }
 
-    public void deleteMessage(@Valid @RequestBody MessageDTO messageDTO) {
-        Optional<Message> message = messageRepository.findById(messageDTO.getMessageDeleteId());
+    public void deleteMessage(Long id) {
+        Optional<Message> message = messageRepository.findById(id);
 
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Optional<User> currentUser = userRepository.findByUsername(userDetails.getUsername());
 
-        if(!message.get().getOwner().equals(currentUser))
+        if(message.get().getOwner().getId() != currentUser.get().getId())
             throw new UnauthorizedException("You are not the owner of this message");
 
         messageRepository.delete(message.get());

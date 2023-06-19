@@ -4,6 +4,8 @@ import { StorageService } from './_services/storage.service';
 import { AuthService } from './_services/auth.service';
 import { EventBusService } from './_shared/event-bus.service';
 import { NgOptimizedImage } from '@angular/common';
+import {UserService} from "./_services/user.service";
+import {User} from "./user/user.interface";
 
 @Component({
   selector: 'app-root',
@@ -18,11 +20,13 @@ export class AppComponent {
   username?: string;
   title?: string;
   eventBusSub?: Subscription;
+  currentUser!: User;
 
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
-    private eventBusService: EventBusService
+    private eventBusService: EventBusService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +40,16 @@ export class AppComponent {
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
+
+      this.userService.getCurrentUser().subscribe({
+        next: data => {
+          this.currentUser = JSON.parse(data) as User;
+        },
+        error: err => {
+
+        }
+      });
+
     }
 
     this.eventBusSub = this.eventBusService.on('logout', () => {

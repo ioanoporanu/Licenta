@@ -5,8 +5,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
 </header>
+
 
 <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark navbar-custom">
@@ -24,7 +24,11 @@
           <a href="/mod" class="nav-link" routerLink="mod" style="font-size: 1vw;">Moderator Board</a>
         </li>
         <li class="nav-item">
-          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user" style="font-size: 1vw;">Home</a>
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user-home" style="font-size: 1vw;">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/map" class="nav-link" *ngIf="isLoggedIn" routerLink="map" style="font-size: 1vw;">Map</a>
         </li>
       </ul>
 
@@ -43,6 +47,9 @@
         </li>
         <li class="nav-item">
           <a href class="nav-link" routerLink="home" (click)="logout()">LogOut</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" routerLink="home" (click)="logout()">KmCoins: {{this.currentUser.kmCoins}}</a>
         </li>
       </ul>
     </nav>

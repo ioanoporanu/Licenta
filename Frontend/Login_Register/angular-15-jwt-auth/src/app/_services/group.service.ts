@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Group} from "../group/group-interfaces";
+import {Ride} from "../ride/ride.interface";
 
 const API_URL = 'http://localhost:9091/group/';
 const httpOptions = {
@@ -29,9 +31,35 @@ export class GroupService {
     );
   }
 
-  deleteGroup(id:number) : Observable<any> {
+  getGroup(id: any): Observable<any> {
+    return this.http.get(API_URL + 'getById/' + id, { responseType: 'text' });
+  }
+
+  updateGroup(group: Group) : Observable<any> {
+    return this.http.put(
+      API_URL + 'update/' + group.groupDeleteId,
+      JSON.stringify(group),
+      httpOptions
+    );
+  }
+
+  deleteGroup(id: number) : Observable<any> {
     return this.http.delete(
       API_URL + 'delete/' + id,
+    );
+  }
+
+  getSharedRides(id: number | undefined) : Observable<any> {
+    return this.http.get(
+      API_URL + 'getSharedRides/' + id,
+    );
+  }
+
+  shareRide(group: Group) {
+    return this.http.put(
+      API_URL + 'share',
+      group,
+      httpOptions
     );
   }
 }
