@@ -1,11 +1,15 @@
 package com.example.BlaBlaCar.entities.message;
 
 import com.example.BlaBlaCar.entities.group.Group;
+import com.example.BlaBlaCar.entities.reply.Reply;
 import com.example.BlaBlaCar.entities.user.User;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,6 +27,15 @@ public class Message {
     private Group group;
 
     private String text;
+
+    private Date date;
+
+    @OneToMany(
+            mappedBy = "message",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<Reply> replies;
 
     private String ownerName;
 

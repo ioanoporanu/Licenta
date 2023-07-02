@@ -12,6 +12,7 @@ import {CreateGroupComponent} from "./group/create-group/create-group.component"
 import {GroupComponent} from "./group/group.component";
 import {MapComponent} from "./map/map.component";
 import {CreateRideComponent} from "./ride/create-ride/create-ride.component";
+import {ReplyComponent} from "./reply/reply.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,8 @@ const routes: Routes = [
   { path: 'create-group', component: CreateGroupComponent },
   { path: 'groups/:group', component: GroupComponent},
   { path: 'map', component: MapComponent},
+  { path: 'replies', component: ReplyComponent},
+
   { path: 'ride/create-ride', component: CreateRideComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

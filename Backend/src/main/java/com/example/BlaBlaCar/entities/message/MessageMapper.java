@@ -1,5 +1,7 @@
 package com.example.BlaBlaCar.entities.message;
 
+import com.example.BlaBlaCar.entities.reply.Reply;
+import com.example.BlaBlaCar.entities.reply.ReplyDTO;
 import org.mapstruct.*;
 
 @Mapper(
@@ -11,6 +13,8 @@ public interface MessageMapper {
     @Mapping(source = "message.id", target = "messageDeleteId")
     @Mapping(source = "message.group.id", target = "groupId")
     MessageDTO fromMessage(Message message);
+
+    ReplyDTO fromReply(Reply reply);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateFromDto(MessageDTO MessageDTO, @MappingTarget Message Message);

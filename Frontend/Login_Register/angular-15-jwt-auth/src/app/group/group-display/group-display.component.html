@@ -3,12 +3,12 @@
   <div class="card card-container">
     <div class="card-header">
       <i class="fa fa-group" style="font-size:20px; color: black; background: white"> Groups</i>
-      <button class="btn-button-create-account glyphicon glyphicon-edit nav-link" routerLink="/create-group"></button>
+      <button class="btn-button-create-account glyphicon glyphicon-edit nav-link" routerLink="/create-group" style="background-color: white"></button>
     </div>
     <div class="list-group-horizontal" style="overflow: auto">
       <div *ngFor="let group of groups">
         <a class="nav-link" routerLink="/groups/{{ group.name }}" [state]="{ id:1 , currentGroup: group}">
-          <div class="list-group-item " style="display: flex; background-color: #f5f5f5">
+          <div class="list-group-item " style="display: flex; background-color:white; border-color: black">
             <div class="flex-text" style="color: black; flex: 1"><b style="font-size: 17px">{{group.name}}</b><button class="btn" (click)="onClickDelete(group.groupDeleteId) ; $event.preventDefault(); $event.stopPropagation();" style="float: right">
               <i class="fa fa-trash"></i></button>
               <br>

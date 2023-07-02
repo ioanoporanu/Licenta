@@ -3,6 +3,8 @@ package com.example.BlaBlaCar.entities.message;
 import com.example.BlaBlaCar.entities.group.Group;
 import com.example.BlaBlaCar.entities.group.GroupDTO;
 import com.example.BlaBlaCar.entities.group.GroupRepository;
+import com.example.BlaBlaCar.entities.reply.ReplyDTO;
+import com.example.BlaBlaCar.entities.reply.ReplyMapper;
 import com.example.BlaBlaCar.entities.user.User;
 import com.example.BlaBlaCar.entities.user.UserRepository;
 import com.example.BlaBlaCar.exceptions.UnauthorizedException;
@@ -35,6 +37,9 @@ public class MessageService {
     @Autowired
     GroupRepository groupRepository;
 
+    @Autowired
+    ReplyMapper replyMapper;
+
     public Long saveMessage(@Valid @RequestBody MessageDTO messageDTO) {
         Message message = messageMapper.fromMessageDTO(messageDTO);
 
@@ -53,6 +58,7 @@ public class MessageService {
         messageRepository.save(message);
 
         currentUser.get().getMessages().add(message);
+
         currentGroup.get().getMessages().add(message);
 
         return message.getId();
@@ -99,4 +105,11 @@ public class MessageService {
 
         return updateMessage.get().getId();
     }
+
+//    public List<ReplyDTO> getReplies(Long id){
+//        Optional<Message> message = messageRepository.findById(id);
+//
+//        return message.get().getReplies().stream().map(reply -> replyMapper.fromReply(reply)).collect(Collectors.toList());
+//
+//    }
 }

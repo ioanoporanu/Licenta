@@ -1,16 +1,17 @@
 <div class="background1" >
-  <div class="card card-container" style="width: 450px !important; background-color: whitesmoke; height: 700px !important; position: fixed">
-    <div class="card-header" style="background-color: whitesmoke; color: black">
+  <div class="card card-container" style="width: 450px !important; background-color: whites; height: 700px !important; position: fixed">
+    <div class="card-header" style="background-color: white; color: black;">
       <b>{{group.name}}</b>
         <button
           class="fa fa-user-plus add-button"
           (click)="openUserAddModal()"
+          style="background-color: white"
         ></button>
     </div>
     <div class="list-group-horizontal">
       <div *ngFor="let owner of group.ownersUsername">
         <a class="nav-link" routerLink="">
-          <div class="list-group-item d-flex justify-content-between" style="display: flex; border: none">
+          <div class="list-group-item d-flex justify-content-between" style="display: flex; border-top: none; border-right: none; border-left: none; border-radius: 0px">
             <div class="flex-text" style="color: black; flex: 1">
               <b style="float: left;">~{{owner}}</b>
               <button class="btn"  style="float: right">
@@ -23,7 +24,7 @@
       </div>
       <div *ngFor="let user of group.usersUsername">
         <a class="nav-link">
-          <div class="list-group-item d-flex justify-content-between" style="display: flex; border: none">
+          <div class="list-group-item d-flex justify-content-between" style="display: flex; border-top: none; border-right: none; border-left: none; border-radius: 0px">
             <div class="flex-text" style="color: black; flex: 1">
               <b style="float: left;">~{{user}}</b>
               <button class="btn" (click)="onClickDelete(user)" style="float: right">
@@ -59,7 +60,7 @@
   </div>
 </div>
 
-<div class="card background" style="left: 1050px; width: 500px; overflow: auto !important; height: 100%; position: fixed;">
+<div class="card background" style="left: 1088px; width: 450px; overflow: auto !important; height: 100%; position: fixed;">
   <div class="col-md-12">
     <div class="card card-container" style="width: 300px; font-size: 30px; text-align: center">
       Shared Rides

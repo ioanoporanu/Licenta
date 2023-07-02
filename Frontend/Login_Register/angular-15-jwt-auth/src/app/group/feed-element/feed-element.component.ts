@@ -2,6 +2,10 @@ import {Component, Input} from '@angular/core';
 import {FeedElement} from "./feed-element-interface";
 import {FeedService} from "../../_services/feed.service";
 import {Group} from "../group-interfaces";
+import {GroupDisplayModalComponent} from "../group-display-modal/group-display-modal.component";
+import {MatDialog} from "@angular/material/dialog";
+import {ReplyComponent} from "../../reply/reply.component";
+import {DatePipe} from "@angular/common";
 
 
 @Component({
@@ -10,10 +14,10 @@ import {Group} from "../group-interfaces";
   styleUrls: ['./feed-element.component.css'],
 })
 export class FeedElementComponent{
-  constructor(private feedService: FeedService) {
+  constructor(private feedService: FeedService,
+              private dialog: MatDialog,
+              public datePipe: DatePipe) {
   }
-
-  feedElementDetails?: FeedElement;
 
   @Input()
   feed!: FeedElement;
@@ -32,6 +36,14 @@ export class FeedElementComponent{
       },
       error: err => {
       }
+    });
+  }
+
+  onOpenReplies(){
+    const dialogRef = this.dialog.open(ReplyComponent,{
+      width: '700px',
+      height:'700px',
+      data: this.feed,
     });
   }
 

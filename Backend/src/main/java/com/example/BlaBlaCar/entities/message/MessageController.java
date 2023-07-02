@@ -1,5 +1,7 @@
 package com.example.BlaBlaCar.entities.message;
 
+import com.example.BlaBlaCar.entities.reply.Reply;
+import com.example.BlaBlaCar.entities.reply.ReplyDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,4 +38,9 @@ public class MessageController {
     public Long update(@PathVariable("id") Long id, @Valid @RequestBody MessageDTO messageDTO) {
         return messageService.updateMessage(messageDTO, id);
     }
+
+//    @GetMapping("/getReplies/{id}")
+//    public List<ReplyDTO> getReplies(@PathVariable("id") Long id) {
+//        return messageService.getReplies(id);
+//    }
 }

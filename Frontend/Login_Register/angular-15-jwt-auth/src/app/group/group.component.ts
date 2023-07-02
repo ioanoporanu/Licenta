@@ -45,6 +45,7 @@ export class GroupComponent {
     this.feedService.getGroupMessages(this.group.groupDeleteId).subscribe({
       next: data => {
         this.feedElements = data as Set<FeedElement>;
+        console.log(data);
       },
       error: err => {
         if (err.error) {
@@ -98,7 +99,8 @@ export class GroupComponent {
     const dialogRef =  this.dialog.open(FeedModalComponent);
     dialogRef.afterClosed().subscribe((data) => {
       if (data) {
-         this.feedService.createMessage(data, this.group.groupDeleteId).subscribe({
+
+         this.feedService.createMessage(data, this.group.groupDeleteId, new Date()).subscribe({
            next: data => {
              window.location.reload();
            },

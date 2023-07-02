@@ -47,6 +47,8 @@ import {DatePipe} from "@angular/common";
 import { RidesDisplayComponent } from './ride/rides-display/rides-display.component';
 import { MapRenderDirectionsComponent } from './map/map-render-directions/map-render-directions.component';
 import { GroupDisplayModalComponent } from './group/group-display-modal/group-display-modal.component';
+import { ReplyComponent } from './reply/reply.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { GroupDisplayModalComponent } from './group/group-display-modal/group-di
     RidesDisplayComponent,
     MapRenderDirectionsComponent,
     GroupDisplayModalComponent,
+    ReplyComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { GroupDisplayModalComponent } from './group/group-display-modal/group-di
     TranslateModule.forRoot(),
     StreamAutocompleteTextareaModule,
     StreamChatModule,
+    MatButtonModule,
   ],
   providers: [httpInterceptorProviders, MatDatepickerModule, DatePipe],
   bootstrap: [AppComponent],

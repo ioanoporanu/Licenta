@@ -1,0 +1,38 @@
+<!--<link rel="stylesheet" href="../plan-activity-details/plan-activity-details.component.css">-->
+<body>
+<div class="container">
+  <div class="row" style="margin: 0px !important;">
+    <section class="chat" style="overflow: auto;">
+      <div class="header-chat">
+        <i class="icon fa fa-user-o" aria-hidden="true"></i>
+        <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+      </div>
+      <div class="container" id="chatBox" style="overflow: auto; height: 510px;  width: calc(100% - 15px) !important;">
+        <div class=" messages-chat"  *ngFor="let reply of replies;">
+          <div class="text" *ngIf="reply.ownerUsername !== currentUser.username">
+            <div class="username-message"> {{reply.ownerUsername}}</div>
+            {{reply.text}}
+            <div style="font-size: 13px; float: right; margin-left: 10px"> {{this.datePipe.transform(reply.date, 'h:mm')}}</div>
+          </div>
+          <div class="message text-only" *ngIf="reply.ownerUsername === currentUser.username">
+            <div class="response">
+              <div class="text">
+                <div class="username-message"> {{reply.ownerUsername}}</div>
+                {{reply.text}}
+                <div style="font-size: 13px; float: right; margin-left: 10px"> {{this.datePipe.transform(reply.date, 'h:mm')}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-chat">
+        <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+        <input type="text" class="write-message" id="myText" (keyup.enter)="sendMessage()" placeholder="Type your message here">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="sendMessage()" style="background-color: #E5E5E5">
+          <mat-icon style="color: black">send</mat-icon>
+        </button>
+      </div>
+    </section>
+  </div>
+</div>
+</body>

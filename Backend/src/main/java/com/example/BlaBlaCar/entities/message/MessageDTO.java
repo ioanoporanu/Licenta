@@ -1,8 +1,12 @@
 package com.example.BlaBlaCar.entities.message;
 
+import com.example.BlaBlaCar.entities.reply.ReplyDTO;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Date;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -16,4 +20,8 @@ public class MessageDTO {
     private Long messageDeleteId;
 
     private String ownerName;
+
+    private Set<ReplyDTO> replies;
+
+    private Date date;
 }
